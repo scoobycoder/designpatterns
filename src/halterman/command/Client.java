@@ -3,20 +3,24 @@ package halterman.command;
 //Client
 public class Client {
 	public static void main(String[] args) {
-		RemoteControl control = new RemoteControl();
+		
+		//Invoker
+		Switch lightSwitch = new Switch();
 
+		//Receiver
 		Light light = new Light();
 
+		//Concrete Commands from Command Interface
 		Command lightsOn = new LightOnCommand(light);
 		Command lightsOff = new LightOffCommand(light);
 
 		// switch on
-		control.setCommand(lightsOn);
-		control.pressButton();
+		lightSwitch.setCommand(lightsOn);
+		lightSwitch.pressButton();
 
 		// switch off
-		control.setCommand(lightsOff);
-		control.pressButton();
+		lightSwitch.setCommand(lightsOff);
+		lightSwitch.pressButton();
 
 	}
 
