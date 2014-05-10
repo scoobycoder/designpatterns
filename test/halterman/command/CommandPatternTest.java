@@ -1,6 +1,10 @@
 package halterman.command;
 
 import static org.junit.Assert.*;
+import halterman.command.Command;
+import halterman.command.Light;
+import halterman.command.LightOnCommand;
+import halterman.command.Switch;
 
 import org.mockito.Mock;
 import org.mockito.Mockito;
