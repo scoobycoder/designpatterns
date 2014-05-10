@@ -7,7 +7,7 @@ public class Client {
 		//Invoker
 		Switch lightSwitch = new Switch();
 
-		//Receiver
+		//Light
 		Light light = new Light();
 
 		//Concrete Commands from Command Interface

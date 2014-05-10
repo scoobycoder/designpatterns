@@ -6,14 +6,19 @@ import halterman.command.Light;
 import halterman.command.LightOnCommand;
 import halterman.command.Switch;
 
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import static org.mockito.Mockito.verify;
 
 import org.junit.Before;
 import org.junit.Test;
 
 public class CommandPatternTest {
+
+	@InjectMocks 
+	private Switch lightSwitch;
 
 	@Mock
 	Light light;
@@ -21,25 +26,18 @@ public class CommandPatternTest {
 	@Mock
 	Command lightsOn;
 	
-	private Switch control;
-	
-    @Before
+	@Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-        control = new Switch();
+        lightSwitch = new Switch();
     }
 	
 	@Test
 	public void shouldTurnOnLight() {
-		Command lightsOn = new LightOnCommand(light);
-
-		// switch on
-		control.setCommand(lightsOn);
-		control.pressButton();
-
-		//verify
+		lightSwitch.pressButton();
 		
-		// Need Mockito here, will work on this from home.
+		
+		verify(light).switchOn();
 	}
 	
 	
